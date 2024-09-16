@@ -23,9 +23,9 @@ def update_balance(transaction_type, amount):
         st.session_state.balance -= amount
 
 # Input section for income or expenditure
-st.title("Irfan Treatment Income and Expenditure Tracker")
+st.title("Income and Expenditure Tracker")
 
-st.write(f"Current Balance: **${st.session_state.balance:.2f}**")
+st.write(f"Current Balance: **₹{st.session_state.balance:.2f}**")
 
 with st.form("transaction_form"):
     transaction_type = st.selectbox("Transaction Type", ["Income", "Expenditure"])
@@ -37,7 +37,7 @@ with st.form("transaction_form"):
         update_balance(transaction_type, amount)
         new_transaction = pd.DataFrame({"Type": [transaction_type], "Amount": [amount]})
         st.session_state.transactions = pd.concat([st.session_state.transactions, new_transaction], ignore_index=True)
-        st.success(f"Added {transaction_type} of ${amount:.2f}")
+        st.success(f"Added {transaction_type} of ₹{amount:.2f}")
 
 # Display transaction history
 st.write("### Transaction History")
