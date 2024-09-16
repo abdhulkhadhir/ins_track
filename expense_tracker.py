@@ -23,7 +23,7 @@ def update_balance(transaction_type, amount):
         st.session_state.balance -= amount
 
 # Input section for income or expenditure
-st.title("Income and Expenditure Tracker")
+st.title("Irfan Treatment Income and Expenditure Tracker")
 
 st.write(f"Current Balance: **${st.session_state.balance:.2f}**")
 
